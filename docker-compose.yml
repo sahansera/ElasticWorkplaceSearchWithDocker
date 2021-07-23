@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.4
+    environment:
+      - "node.name=es-node"
+      - "discovery.type=single-node"
+      - "cluster.name=enterprise-search-docker-cluster"
+      - "bootstrap.memory_lock=true"
+      - "xpack.security.enabled=true"
+      - "xpack.security.authc.api_key.enabled=true"
+      - "ELASTIC_PASSWORD=$ELASTIC_PASSWORD"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  enterprisesearch:
+    image: docker.elastic.co/enterprise-search/enterprise-search:7.13.4
+    environment:
+      - "elasticsearch.host=http://elasticsearch:9200"
+      - "ent_search.auth.default.source=standard"
+      - "elasticsearch.username=elastic"
+      - "elasticsearch.password=$ELASTIC_PASSWORD"
+      - "secret_management.encryption_keys=$ENCRYPTION_KEYS"
+      - "allow_es_settings_modification=true"
+      - "JAVA_OPTS=-Xms2g -Xmx2g"
+      - "ENT_SEARCH_DEFAULT_PASSWORD=$ENT_SEARCH_DEFAULT_PASSWORD"
+    ports:
+      - 3002:3002
+    depends_on: ['elasticsearch']
