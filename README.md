@@ -38,7 +38,7 @@ Please share this Repository within your developer community, if you think that 
 
 * Website: https://sahansera.dev
 * Twitter: [@Sahan91](https://twitter.com/Sahan91)
-* Github: [@sahan91](https://github.com/sahan91)
+* Github: [@sahansera](https://github.com/sahansera)
 * LinkedIn: [@sahanserasinghe](https://linkedin.com/in/sahanserasinghe)
 
 ## Contributing
