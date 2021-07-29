@@ -7,9 +7,6 @@
 
 > Demo code of blog post from [https://sahansera.dev/setting-up-elastic-workplace-search-docker/](https://sahansera.dev/setting-up-elastic-workplace-search-docker/)
 
-### 🏠 [Homepage](sahansera.dev)
-
-### ✨ [Demo](sahansera.dev)
 
 ## Usage
 
