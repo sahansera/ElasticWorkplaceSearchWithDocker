@@ -31,3 +31,11 @@ services:
     ports:
       - 3002:3002
     depends_on: ['elasticsearch']
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.13.4
+    environment:
+      - "elasticsearch.host=http://elasticsearch:9200"
+    ports:
+      - 5601:5601
+    depends_on: ['elasticsearch']
